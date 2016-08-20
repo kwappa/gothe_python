@@ -13,6 +13,24 @@ class AddressBook:
             if keyword in person.firstname or keyword in person.lastname:
                 print(person.lastname + ' ' + person.firstname)
 
+    def import_data(self, file):
+        import csv
+        import datetime
+
+        with open(file, 'r', encoding = 'utf-8') as f:
+            reader = csv.reader(f)
+            header = next(reader) # ヘッダーを読み飛ばす
+
+            for row in reader:
+                p = Person()
+                p.lastname     = row[0]
+                p.firstname    = row[1]
+                p.mail_address = row[2]
+                p.birthday     = datetime.datetime.strptime(row[3], '%Y/%m/%d')
+                p.tel          = row[4]
+
+                self.person_list.append(p)
+
 class Person:
     import datetime
 
