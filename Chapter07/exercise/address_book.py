@@ -5,7 +5,8 @@ class AddressBook:
         self.person_list.append(person)
 
     def show_all(self):         # 登録された人の一覧を表示
-        pass
+        for person in self. person_list:
+            print(person.lastname + ' ' + person.firstname)
 
     def search(self, keyword):  # 検索条件にマッチする登録された人を表示
         pass
