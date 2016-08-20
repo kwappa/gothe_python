@@ -9,7 +9,9 @@ class AddressBook:
             print(person.lastname + ' ' + person.firstname)
 
     def search(self, keyword):  # 検索条件にマッチする登録された人を表示
-        pass
+        for person in self.person_list:
+            if keyword in person.firstname or keyword in person.lastname:
+                print(person.lastname + ' ' + person.firstname)
 
 class Person:
     import datetime
