@@ -40,21 +40,10 @@ class Person:
     mail_address = ''           # メールアドレス
     birthday     = datetime.datetime(2000, 1, 1) # 生年月日
 
-address_book = AddressBook()
-
-gothe = Person()
-gothe.firstname = 'ゆもと'
-gothe.lastname  = 'みちたか'
-gothe.tel       = '090-1234-5678'
-address_book.add(gothe)
-
-john = Person()
-john.firstname  = 'John'
-john.lastname   = 'Lennon'
-john.tel        = '090-1234-0098'
-address_book.add(john)
-
 print('== 動作確認 ==')
+
+address_book = AddressBook()
+address_book.import_data('Chapter07/exercise/person_list.csv')
 
 print('アドレス帳の人数 -> ' + str(len(address_book.person_list)) + ' 人')
 
@@ -62,4 +51,4 @@ print('-- 一覧表示 --')
 address_book.show_all()
 
 print('-- 検索 --')
-address_book.search('John')
+address_book.search('片山')
